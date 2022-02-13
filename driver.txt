@@ -1,0 +1,86 @@
+
+Insert data:
+  key = 34, value = 0
+  key = 16, value = 1
+  key = 58, value = 2
+  key = -24, value = 3
+  key = 53, value = 4
+  key = 7, value = 5
+  key = 97, value = 6
+  key = 92, value = 7
+  key = -12, value = 8
+  key = 45, value = 9
+  key = 9, value = 10
+  key = 0, value = 11
+  key = -1, value = 12
+  key = 20, value = 13
+  key = 77, value = 14
+
+Dump list:
+Key: -24, Value: 3
+Key: -12, Value: 8
+Key: -1, Value: 12
+Key: 0, Value: 11
+Key: 7, Value: 5
+Key: 9, Value: 10
+Key: 16, Value: 1
+Key: 20, Value: 13
+Key: 34, Value: 0
+Key: 45, Value: 9
+Key: 53, Value: 4
+Key: 58, Value: 2
+Key: 77, Value: 14
+Key: 92, Value: 7
+Key: 97, Value: 6
+
+RMQ query:
+  query(45,77) = 2
+
+Dump RMQ table info:
+Num blocks: 5
+Block size: 3
+Block mins: 
+3  5  0  2  6  
+
+remove(92), remove(97), remove(-24), update(77,100):
+
+Dump list:
+Key: -12, Value: 8
+Key: -1, Value: 12
+Key: 0, Value: 11
+Key: 7, Value: 5
+Key: 9, Value: 10
+Key: 16, Value: 1
+Key: 20, Value: 13
+Key: 34, Value: 0
+Key: 45, Value: 9
+Key: 53, Value: 4
+Key: 58, Value: 2
+Key: 77, Value: 100
+
+Dump RMQ table info:
+Table is invalid.
+
+RMQ query:
+  query(0,20) = 1
+
+Dump RMQ table info:
+Num blocks: 4
+Block size: 3
+Block mins: 
+8  1  0  2  
+
+Clear and dump list:
+*****************************************
+Insert lots of data; check speed of query
+*****************************************
+
+Insert 1000 random key/value pairs.
+
+Total of 986 key/value pairs inserted.
+
+Testing correctness of query()...done!
+Num blocks: 32
+Block size: 31
+Block mins: 
+598  1169  909  6561  2251  2972  975  2748  1180  1830  1976  456  5077  1723  2788  579  1106  658  1760  150  3173  438  452  2766  53  1726  2021  361  1942  3811  2419  1582  
